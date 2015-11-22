@@ -33,6 +33,7 @@ app.use(passport.session({
 }));
 app.use(passport.session());
 
+
 //seed the database
 //uncomment to seed
 //var dbseeder = require('./server/config/dbseeder');

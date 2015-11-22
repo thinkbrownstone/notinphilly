@@ -2,13 +2,13 @@
 
 var mongoose = require('mongoose');
 var passport = require('passport');
-var config = require('../config');
+var config = require('../config/db');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var compose = require('composable-middleware');
 var User = require('../api/user/user.model');
 var validateJwt = expressJwt({
-    secret: config.secrets.session
+    secret: "mySecretKey"
 });
 
 /**
@@ -94,7 +94,8 @@ function hasRoles(rolesRequired) {
 function signToken(id) {
     return jwt.sign({
         _id: id
-    }, config.secrets.session, {
+    //}, config.secrets.session, {
+    }, "SecretKey", {
         expiresInMinutes: 60 * 5
     });
 }

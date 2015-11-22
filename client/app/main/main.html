@@ -33,13 +33,13 @@
             </ng-form>
           </uib-accordion-group>
           <uib-accordion-group heading="Member login" panel-class="menu-get-started" template-url="group-template.html">
-            <ng-form ng-controller="LoginController">
-              <div class="form-group menu-login">
+            <ng-form>
+              <div ng-controller="LoginController" class="form-group menu-login">
                 <label>Username</label>
                 <input type="text" class="form-control" name="uname" ng-model="user.username" required>
                 <label>Password</label>
                 <input type="password" class="form-control" name="pass" ng-model="user.password" required>
-                <input type="submit" class="btn btn-default" value="Login" /> Or <a href="">Sign up</a>
+                <input type="submit" class="btn btn-default" ng-click="Login()" value="login"/> Or <a href="">Sign up</a>
                 </div>
             </ng-form>
             </uib-accordion-group>

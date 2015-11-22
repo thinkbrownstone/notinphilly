@@ -38,6 +38,19 @@ exports.get = function(req, res, next) {
 };
 
 /**
+ * Get a single user
+ */
+exports.getByUsername = function(req, res, next) {
+    var username = req.params.username;
+
+    UserModel.find({"username" : username}, function(err, user) {
+        if (err) return next(err);
+        if (!user) return res.status(401).send('Unauthorized');
+        res.json(user);
+    });
+};
+
+/**
  * Connects a street to a user
  */
 exports.setStreet = function(req, res, next) {
